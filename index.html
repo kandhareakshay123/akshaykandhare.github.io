@@ -6,121 +6,181 @@
 <title>Akshay Kandhare — AWS Cloud Engineer</title>
 <meta name="description" content="Akshay Kandhare — AWS Cloud Engineer and Certified Solutions Architect (Associate). 5 years building, migrating and operating production AWS infrastructure." />
 <meta name="author" content="Akshay Kandhare" />
-<!-- Open Graph so the link previews nicely when shared -->
 <meta property="og:title" content="Akshay Kandhare — AWS Cloud Engineer" />
 <meta property="og:description" content="AWS Certified Solutions Architect – Associate. 5 years designing, deploying and migrating production cloud infrastructure." />
 <meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#132a45; --navy2:#1f3a5f; --accent:#2e6da4; --accent-soft:#e8f0f8;
-    --ink:#1f2933; --muted:#5a6570; --line:#dfe6ee; --bg:#f5f7fa; --card:#ffffff;
+    /* AWS-inspired palette */
+    --ink:#0f1b2d;          /* AWS Squid Ink (deep navy) */
+    --ink2:#16263d;
+    --panel:#132339;
+    --orange:#ff9900;        /* AWS signature orange */
+    --orange-2:#ec7211;
+    --sky:#4da3ff;           /* bright cloud blue */
+    --teal:#28c8c8;
+    --text:#1c2b3a;
+    --muted:#5f7085;
+    --muted-d:#9fb3c8;
+    --line:#e3e9f0;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(15,27,45,.08);
+    --shadow-lg:0 20px 50px rgba(15,27,45,.16);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Times New Roman",Times,Georgia,serif;
-    color:var(--ink); background:var(--bg); line-height:1.6; font-size:16px;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    color:var(--text); background:var(--bg); line-height:1.65; font-size:16px;
+    -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--accent); text-decoration:none}
+  h1,h2,h3,.brand,.stat .num{font-family:'Space Grotesk','Inter',sans-serif}
+  a{color:var(--orange-2); text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:960px; margin:0 auto; padding:0 20px}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 22px}
+  .accent{color:var(--orange)}
 
-  /* ---- top nav ---- */
-  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
-      backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:58px}
-  nav .brand{font-weight:700; color:var(--navy)}
-  nav ul{list-style:none; display:flex; gap:22px}
-  nav ul a{color:var(--muted); font-size:14px; font-weight:600}
-  nav ul a:hover{color:var(--accent); text-decoration:none}
-  .nav-toggle{display:none; background:none; border:0; font-size:24px; color:var(--navy); cursor:pointer}
+  /* ---------- NAV ---------- */
+  nav{position:sticky; top:0; z-index:100;
+      background:rgba(15,27,45,.85); backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+  nav .brand{font-weight:700; font-size:1.1rem; color:#fff; letter-spacing:.3px}
+  nav .brand .dot{color:var(--orange)}
+  nav ul{list-style:none; display:flex; gap:26px}
+  nav ul a{color:var(--muted-d); font-size:.9rem; font-weight:500; transition:color .2s}
+  nav ul a:hover{color:var(--orange); text-decoration:none}
+  .nav-toggle{display:none; background:none; border:0; font-size:26px; color:#fff; cursor:pointer}
 
-  /* ---- hero ---- */
-  header.hero{
-    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,var(--accent) 140%);
-    color:#fff; padding:70px 0 60px;
-  }
-  .hero h1{font-size:2.6rem; line-height:1.15; letter-spacing:.3px}
-  .hero .role{font-size:1.25rem; color:#cfe0f2; margin-top:8px; font-weight:600}
-  .hero p.tag{margin-top:18px; max-width:680px; color:#e4edf6; font-size:1.02rem}
-  .hero .cta{margin-top:28px; display:flex; flex-wrap:wrap; gap:12px}
-  .btn{display:inline-block; padding:11px 20px; border-radius:8px; font-weight:600; font-size:.95rem}
-  .btn-primary{background:#fff; color:var(--navy)}
-  .btn-primary:hover{background:#eef4fb; text-decoration:none}
-  .btn-ghost{border:1.5px solid rgba(255,255,255,.6); color:#fff}
-  .btn-ghost:hover{background:rgba(255,255,255,.12); text-decoration:none}
-  .hero .contact{margin-top:26px; display:flex; flex-wrap:wrap; gap:18px; font-size:.9rem; color:#cfe0f2}
-  .hero .contact span{display:inline-flex; align-items:center; gap:6px}
+  /* ---------- HERO ---------- */
+  header.hero{position:relative; overflow:hidden; color:#fff;
+    background:radial-gradient(1200px 500px at 80% -10%, rgba(255,153,0,.22), transparent 60%),
+               radial-gradient(900px 500px at 0% 20%, rgba(77,163,255,.18), transparent 55%),
+               linear-gradient(160deg,var(--ink) 0%,var(--ink2) 60%,#0b1626 100%);
+    padding:96px 0 88px}
+  /* subtle grid texture */
+  header.hero::before{content:""; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:44px 44px; mask-image:linear-gradient(180deg,#000,transparent 85%)}
+  .hero .inner{position:relative; z-index:2; max-width:760px}
+  .pill{display:inline-flex; align-items:center; gap:8px; background:rgba(255,153,0,.12);
+    border:1px solid rgba(255,153,0,.35); color:var(--orange); font-size:.8rem; font-weight:600;
+    padding:6px 14px; border-radius:999px; letter-spacing:.4px; text-transform:uppercase}
+  .pill .live{width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 0 rgba(255,153,0,.6); animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 10px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+  .hero h1{font-size:3.2rem; line-height:1.08; margin-top:20px; letter-spacing:-.5px}
+  .hero .role{font-size:1.2rem; color:#cfe0f2; margin-top:12px; font-weight:500}
+  .hero .role b{color:var(--orange); font-weight:600}
+  .hero p.tag{margin-top:20px; color:#d7e3f1; font-size:1.05rem; max-width:660px}
+  .hero .cta{margin-top:30px; display:flex; flex-wrap:wrap; gap:14px}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:12px;
+    font-weight:600; font-size:.95rem; transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{text-decoration:none; transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-2)); color:#161e2b;
+    box-shadow:0 8px 22px rgba(255,153,0,.32)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.35); color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .hero .contact{margin-top:30px; display:flex; flex-wrap:wrap; gap:20px; font-size:.9rem; color:#b7c8dc}
+  .hero .contact a{color:#b7c8dc}
+  .hero .contact a:hover{color:var(--orange); text-decoration:none}
 
-  /* ---- sections ---- */
-  section{padding:52px 0}
-  section:nth-of-type(even){background:var(--card)}
-  h2{color:var(--navy); font-size:1.5rem; margin-bottom:6px}
-  h2 + .lead{color:var(--muted); margin-bottom:26px; font-size:.98rem}
-  .rule{width:52px; height:3px; background:var(--accent); border-radius:2px; margin:8px 0 26px}
+  /* ---------- SECTIONS ---------- */
+  section{padding:74px 0}
+  .sec-head{margin-bottom:38px}
+  .sec-kicker{color:var(--orange-2); font-weight:700; font-size:.8rem; letter-spacing:1.5px; text-transform:uppercase}
+  h2{color:var(--ink); font-size:2rem; margin-top:6px; letter-spacing:-.4px}
+  .sec-head p{color:var(--muted); margin-top:8px; max-width:640px}
 
-  /* ---- highlight stats ---- */
-  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:8px}
-  .stat{background:var(--accent-soft); border:1px solid var(--line); border-radius:12px; padding:20px; text-align:center}
-  .stat .num{font-size:1.7rem; font-weight:800; color:var(--navy); line-height:1}
-  .stat .lbl{font-size:.82rem; color:var(--muted); margin-top:8px}
+  /* ---------- STATS ---------- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 20px; text-align:center; box-shadow:var(--shadow); position:relative; overflow:hidden}
+  .stat::after{content:""; position:absolute; left:0; top:0; height:4px; width:100%;
+    background:linear-gradient(90deg,var(--orange),var(--sky))}
+  .stat .num{font-size:2.3rem; font-weight:700; color:var(--ink); line-height:1}
+  .stat .lbl{font-size:.83rem; color:var(--muted); margin-top:10px}
 
-  /* ---- timeline / experience ---- */
-  .job{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
-       border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 1px 3px rgba(16,40,70,.05)}
-  section:nth-of-type(even) .job{background:var(--bg)}
-  .job .top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; align-items:baseline}
-  .job h3{color:var(--ink); font-size:1.12rem}
-  .job .co{color:var(--accent); font-weight:600; font-size:.98rem}
-  .job .when{color:var(--muted); font-size:.85rem; white-space:nowrap}
-  .job ul{margin:14px 0 0; padding-left:0; list-style:none}
-  .job li{position:relative; padding-left:22px; margin-bottom:9px; font-size:.95rem; color:#38434f}
-  .job li::before{content:""; position:absolute; left:4px; top:9px; width:7px; height:7px;
-                  background:var(--accent); border-radius:50%}
+  /* ---------- EXPERIENCE ---------- */
+  .job{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 28px; margin-bottom:20px; box-shadow:var(--shadow);
+    border-left:4px solid var(--orange); transition:transform .15s ease, box-shadow .15s ease}
+  .job:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg)}
+  .job .top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline}
+  .job h3{color:var(--ink); font-size:1.2rem}
+  .job .co{color:var(--orange-2); font-weight:600; font-size:1rem}
+  .job .when{color:var(--muted); font-size:.85rem; white-space:nowrap; background:var(--bg);
+    padding:5px 12px; border-radius:999px; border:1px solid var(--line)}
+  .job ul{margin:16px 0 0; padding-left:0; list-style:none}
+  .job li{position:relative; padding-left:26px; margin-bottom:10px; font-size:.96rem; color:#3a4a5c}
+  .job li::before{content:"\276F"; position:absolute; left:2px; top:1px; color:var(--orange); font-size:.75rem; font-weight:700}
 
-  /* ---- projects ---- */
-  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
-  .proj{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px;
-        transition:transform .15s ease, box-shadow .15s ease}
-  section:nth-of-type(even) .proj{background:var(--bg)}
-  .proj:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(16,40,70,.10)}
-  .proj h3{color:var(--navy); font-size:1.05rem; margin-bottom:8px}
-  .proj p{font-size:.92rem; color:#38434f}
-  .proj .badge{display:inline-block; background:var(--accent-soft); color:var(--accent);
-               font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:20px; margin-bottom:12px}
+  /* ---------- PROJECTS ---------- */
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  .proj{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px;
+    transition:transform .18s ease, box-shadow .18s ease; position:relative; overflow:hidden}
+  .proj::before{content:""; position:absolute; right:-40px; top:-40px; width:120px; height:120px;
+    background:radial-gradient(circle,rgba(255,153,0,.10),transparent 70%); border-radius:50%}
+  .proj:hover{transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:rgba(255,153,0,.4)}
+  .proj .badge{display:inline-block; background:linear-gradient(135deg,rgba(255,153,0,.16),rgba(77,163,255,.14));
+    color:var(--orange-2); font-size:.68rem; font-weight:700; letter-spacing:.6px;
+    padding:5px 11px; border-radius:999px; margin-bottom:14px; border:1px solid rgba(255,153,0,.25)}
+  .proj h3{color:var(--ink); font-size:1.1rem; margin-bottom:9px}
+  .proj p{font-size:.92rem; color:#4a5a6c}
 
-  /* ---- skills ---- */
-  .skillset{margin-bottom:16px}
-  .skillset h4{color:var(--navy); font-size:.92rem; margin-bottom:9px; text-transform:uppercase; letter-spacing:.5px}
-  .chips{display:flex; flex-wrap:wrap; gap:8px}
-  .chip{background:var(--card); border:1px solid var(--line); color:#33414d;
-        font-size:.83rem; padding:6px 12px; border-radius:20px}
-  section:nth-of-type(even) .chip{background:var(--bg)}
+  /* ---------- SKILLS ---------- */
+  #skills{background:linear-gradient(180deg,#0f1b2d,#132339); color:#fff}
+  #skills h2{color:#fff}
+  #skills .sec-kicker{color:var(--orange)}
+  .skillset{margin-bottom:20px}
+  .skillset h4{color:var(--orange); font-size:.82rem; margin-bottom:11px; text-transform:uppercase; letter-spacing:1px}
+  .chips{display:flex; flex-wrap:wrap; gap:9px}
+  .chip{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); color:#dbe6f2;
+    font-size:.84rem; padding:7px 14px; border-radius:999px; transition:.2s}
+  .chip:hover{background:rgba(255,153,0,.15); border-color:var(--orange); color:#fff}
 
-  /* ---- two-col rows for edu/cert ---- */
-  .cols{display:grid; grid-template-columns:1fr 1fr; gap:24px}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px}
-  section:nth-of-type(even) .card{background:var(--bg)}
-  .card h3{color:var(--navy); font-size:1.05rem; margin-bottom:14px}
-  .item{margin-bottom:14px} .item:last-child{margin-bottom:0}
-  .item .t{font-weight:600; color:var(--ink); font-size:.96rem}
-  .item .s{color:var(--muted); font-size:.86rem}
+  /* ---------- EDU / CERT ---------- */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; box-shadow:var(--shadow)}
+  .card h3{color:var(--ink); font-size:1.15rem; margin-bottom:16px; display:flex; align-items:center; gap:10px}
+  .card h3 .ic{width:34px; height:34px; border-radius:10px; display:inline-flex; align-items:center;
+    justify-content:center; background:linear-gradient(135deg,var(--orange),var(--orange-2)); color:#161e2b; font-weight:700}
+  .item{padding:12px 0; border-bottom:1px dashed var(--line)}
+  .item:last-child{border-bottom:0; padding-bottom:0}
+  .item .t{font-weight:600; color:var(--ink); font-size:.98rem}
+  .item .s{color:var(--muted); font-size:.87rem}
 
-  /* ---- footer ---- */
-  footer{background:var(--navy); color:#cfe0f2; text-align:center; padding:38px 20px}
-  footer a{color:#fff}
-  footer .links{margin:14px 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap}
-  footer small{display:block; margin-top:14px; color:#8ba6c4}
+  /* ---------- FOOTER ---------- */
+  footer{background:#0b1626; color:#c3d2e2; text-align:center; padding:56px 22px}
+  footer h2{color:#fff; margin-bottom:6px}
+  footer p{color:#9fb3c8}
+  footer .links{margin:22px 0 8px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap}
+  footer .links a{display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14); color:#fff; padding:10px 18px; border-radius:12px; font-size:.9rem; transition:.2s}
+  footer .links a:hover{background:var(--orange); color:#161e2b; text-decoration:none; border-color:var(--orange)}
+  footer small{display:block; margin-top:20px; color:#6f86a0}
 
-  @media (max-width:720px){
-    .hero h1{font-size:2rem}
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:680px){
+    .hero h1{font-size:2.3rem}
     .stats{grid-template-columns:repeat(2,1fr)}
     .grid,.cols{grid-template-columns:1fr}
-    nav ul{position:absolute; top:58px; left:0; right:0; background:#fff; flex-direction:column;
-           gap:0; border-bottom:1px solid var(--line); display:none}
+    nav ul{position:absolute; top:64px; left:0; right:0; background:var(--ink); flex-direction:column;
+           gap:0; border-bottom:1px solid rgba(255,255,255,.1); display:none}
     nav ul.open{display:flex}
-    nav ul li{border-top:1px solid var(--line)}
-    nav ul a{display:block; padding:14px 20px}
+    nav ul li{border-top:1px solid rgba(255,255,255,.08)}
+    nav ul a{display:block; padding:15px 22px}
     .nav-toggle{display:block}
   }
 </style>
@@ -129,7 +189,7 @@
 
 <nav>
   <div class="wrap">
-    <span class="brand">Akshay Kandhare</span>
+    <span class="brand">Akshay Kandhare<span class="dot">.</span></span>
     <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
     <ul id="menu">
       <li><a href="#about">About</a></li>
@@ -143,49 +203,53 @@
 
 <header class="hero" id="about">
   <div class="wrap">
-    <h1>Akshay Kandhare</h1>
-    <div class="role">AWS Cloud Engineer &nbsp;&bull;&nbsp; Certified Solutions Architect – Associate</div>
-    <p class="tag">
-      Five  years designing, deploying and migrating production cloud infrastructure for
-      enterprise clients. I build platforms from the ground up on AWS &mdash; EKS, Amazon MQ,
-      OpenSearch and ElastiCache &mdash; and run migrations with documented validation,
-      rollback and zero data loss.
-    </p>
-    <div class="cta">
-      <a class="btn btn-primary" href="Akshay_Kandhare_Resume_ATS.pdf" download>Download Resume (PDF)</a>
-      <a class="btn btn-ghost" href="#contact">Get in touch</a>
-    </div>
-    <div class="contact">
-      <span>&#9993; kandhareakshay123@gmail.com</span>
-      <span>&#9742; +91 87677 44356</span>
-      <span>&#9679; Pune, India</span>
-      <span>&#128279; <a href="https://linkedin.com/in/akshaykandhare" style="color:#fff" target="_blank" rel="noopener">linkedin.com/in/akshaykandhare</a></span>
+    <div class="inner">
+      <span class="pill"><span class="live"></span> Available &bull; 15 days notice</span>
+      <h1>Akshay Kandhare</h1>
+      <div class="role">AWS Cloud Engineer &nbsp;&bull;&nbsp; <b>Certified Solutions Architect – Associate</b></div>
+      <p class="tag">
+        Five years designing, deploying and migrating production cloud infrastructure for
+        enterprise clients. I build platforms from the ground up on AWS &mdash; EKS, Amazon MQ,
+        OpenSearch and ElastiCache &mdash; and run migrations with documented validation,
+        rollback and zero data loss.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="Akshay_Kandhare_Resume_ATS.pdf" download>&#8681; Download Resume</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="contact">
+        <span>&#9993; <a href="mailto:kandhareakshay123@gmail.com">kandhareakshay123@gmail.com</a></span>
+        <span>&#9742; +91 87677 44356</span>
+        <span>&#9679; Pune, India</span>
+        <span>&#128279; <a href="https://linkedin.com/in/akshaykandhare" target="_blank" rel="noopener">linkedin.com/in/akshaykandhare</a></span>
+      </div>
     </div>
   </div>
 </header>
 
 <section id="highlights">
   <div class="wrap">
-    <h2>At a glance</h2>
-    <div class="rule"></div>
     <div class="stats">
-      <div class="stat"><div class="num">5+</div><div class="lbl">Years in AWS cloud engineering</div></div>
-      <div class="stat"><div class="num">60</div><div class="lbl">Banking clients migrated to AWS</div></div>
-      <div class="stat"><div class="num">0</div><div class="lbl">Data loss on production migrations</div></div>
-      <div class="stat"><div class="num">SAA</div><div class="lbl">AWS Certified Solutions Architect</div></div>
+      <div class="stat reveal"><div class="num">5<span class="accent">+</span></div><div class="lbl">Years in AWS cloud engineering</div></div>
+      <div class="stat reveal"><div class="num">60</div><div class="lbl">Banking clients migrated to AWS</div></div>
+      <div class="stat reveal"><div class="num">0</div><div class="lbl">Data loss on production migrations</div></div>
+      <div class="stat reveal"><div class="num">SAA</div><div class="lbl">AWS Certified Solutions Architect</div></div>
     </div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <h2>Work Experience</h2>
-    <div class="rule"></div>
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Career</div>
+      <h2>Work Experience</h2>
+      <p>Production cloud infrastructure delivered across banking, SaaS and enterprise environments.</p>
+    </div>
 
-    <div class="job">
+    <div class="job reveal">
       <div class="top">
         <div><h3>AWS Solutions Specialist</h3><span class="co">MeWhiz Services Pvt. Ltd</span></div>
-        <span class="when">Sep 2024 – Present &nbsp;|&nbsp; Uttar Pradesh, India</span>
+        <span class="when">Sep 2024 – Present &bull; Uttar Pradesh</span>
       </div>
       <ul>
         <li>Deployed production AWS infrastructure end to end: EKS clusters with managed node groups, Amazon MQ (ActiveMQ) brokers, OpenSearch clusters and ElastiCache (Redis), sized and secured.</li>
@@ -198,10 +262,10 @@
       </ul>
     </div>
 
-    <div class="job">
+    <div class="job reveal">
       <div class="top">
         <div><h3>AWS Cloud Engineer</h3><span class="co">Community Brands Pvt. Ltd</span></div>
-        <span class="when">May 2024 – Jul 2024 &nbsp;|&nbsp; Pune, India</span>
+        <span class="when">May 2024 – Jul 2024 &bull; Pune</span>
       </div>
       <ul>
         <li>Provisioned AWS infrastructure with Terraform and built Jenkins CI/CD pipelines, cutting manual deployment effort.</li>
@@ -210,10 +274,10 @@
       </ul>
     </div>
 
-    <div class="job">
+    <div class="job reveal">
       <div class="top">
         <div><h3>AWS &amp; Network Engineer</h3><span class="co">JJIT Fintech Pvt Ltd</span></div>
-        <span class="when">Sep 2022 – May 2024 &nbsp;|&nbsp; Pune, India</span>
+        <span class="when">Sep 2022 – May 2024 &bull; Pune</span>
       </div>
       <ul>
         <li>Led the migration of 60 banking clients from on-premises data centres to AWS with no loss of service.</li>
@@ -223,15 +287,15 @@
       </ul>
     </div>
 
-    <div class="job">
+    <div class="job reveal">
       <div class="top">
         <div><h3>EDP IT Assistant (Hardware &amp; Networking)</h3><span class="co">Indrayani Co-Op Bank</span></div>
-        <span class="when">Nov 2021 – Apr 2022 &nbsp;|&nbsp; Pimpri, Pune, India</span>
+        <span class="when">Nov 2021 – Apr 2022 &bull; Pimpri, Pune</span>
       </div>
       <ul>
         <li>Implemented and maintained servers on EC2, including administration and patching.</li>
         <li>Managed server operations and Active Directory configuration.</li>
-        <li>Supported Fortigate and Sophos firewall deployment and routing .</li>
+        <li>Supported Fortigate and Sophos firewall deployment and routing.</li>
       </ul>
     </div>
   </div>
@@ -239,38 +303,41 @@
 
 <section id="projects">
   <div class="wrap">
-    <h2>Selected Projects</h2>
-    <p class="lead">Production work delivered with documented validation, rollback and sign-off.</p>
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Selected Work</div>
+      <h2>Projects</h2>
+      <p>Production delivery with documented validation, rollback and sign-off.</p>
+    </div>
     <div class="grid">
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">ZERO DATA LOSS</span>
         <h3>ElastiCache Redis Security Update</h3>
-        <p>Security service update across dev, UAT and production OAuth clusters using a snapshot-first method — manual snapshot before every change, validation of engine version, replication and connectivity at each step, documented rollback throughout. Completed with zero data loss and no downtime.</p>
+        <p>Security service update across dev, UAT and production OAuth clusters using a snapshot-first method — validation of engine version, replication and connectivity at each step, documented rollback throughout. Zero data loss, no downtime.</p>
       </div>
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">ZERO DOWNTIME</span>
-        <h3>RabbitMQ Migration to Amazon Linux 2023</h3>
-        <p>Blue/green broker migration from Amazon Linux 2 to AL2023. Exported and restored every vhost, queue, user and policy, ran parallel validation, then cut over producers and consumers with the original broker retained as rollback until sign-off. No message loss.</p>
+        <h3>RabbitMQ → Amazon Linux 2023</h3>
+        <p>Blue/green broker migration. Exported and restored every vhost, queue, user and policy, ran parallel validation, then cut over producers and consumers with the original broker kept as rollback until sign-off. No message loss.</p>
       </div>
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">MIGRATION</span>
-        <h3>Elasticsearch → Amazon OpenSearch</h3>
-        <p>Migrated a self-managed Elasticsearch workload to Amazon OpenSearch. Ran a reverse-proxy and transport compatibility assessment, documented incompatibilities, built the cutover plan and validated indices, queries and dashboards post-migration.</p>
+        <h3>Elasticsearch → OpenSearch</h3>
+        <p>Migrated a self-managed Elasticsearch workload to Amazon OpenSearch. Ran a reverse-proxy compatibility assessment, documented incompatibilities, built the cutover plan and validated indices, queries and dashboards post-migration.</p>
       </div>
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">PLATFORM BUILD</span>
         <h3>AWS Production Platform on EKS</h3>
-        <p>Designed and deployed the client platform: EKS with managed node groups, Amazon MQ (ActiveMQ), OpenSearch and ElastiCache (Redis). Covered sizing, multi-AZ placement, security groups, IAM roles, encryption and Prometheus/Grafana monitoring, with handover runbooks.</p>
+        <p>Designed and deployed the client platform: EKS with managed node groups, Amazon MQ (ActiveMQ), OpenSearch and ElastiCache. Covered sizing, multi-AZ placement, security groups, IAM roles, encryption and Prometheus/Grafana monitoring.</p>
       </div>
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">AUTOMATION</span>
-        <h3>S3 + CloudFront Site Delivery</h3>
-        <p>Automated static website delivery on S3 fronted by CloudFront using CloudFormation — templated origin, bucket policy, distribution and cache behaviours so a full environment builds repeatably from version-controlled code. Deployed AWS WAF for edge protection.</p>
+        <h3>S3 + CloudFront Delivery</h3>
+        <p>Automated static site delivery on S3 fronted by CloudFront using CloudFormation — templated origin, bucket policy, distribution and cache behaviours so a full environment builds repeatably from code. AWS WAF for edge protection.</p>
       </div>
-      <div class="proj">
+      <div class="proj reveal">
         <span class="badge">60 CLIENTS</span>
         <h3>Banking Migration to AWS</h3>
-        <p>Migrated 60 on-premises banking clients to AWS. Designed the VPC, subnet and routing layout, configured site-to-site VPN for secure branch connectivity, deployed Oracle 19c on RDS with backup policies, and handed over operational runbooks with no loss of service.</p>
+        <p>Migrated 60 on-premises banking clients to AWS. Designed the VPC, subnet and routing layout, configured site-to-site VPN for branch connectivity, deployed Oracle 19c on RDS with backup policies — no loss of service.</p>
       </div>
     </div>
   </div>
@@ -278,10 +345,12 @@
 
 <section id="skills">
   <div class="wrap">
-    <h2>Technical Skills</h2>
-    <div class="rule"></div>
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Toolbox</div>
+      <h2>Technical Skills</h2>
+    </div>
 
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>AWS Services</h4>
       <div class="chips">
         <span class="chip">EKS</span><span class="chip">EC2</span><span class="chip">VPC</span>
@@ -293,21 +362,21 @@
         <span class="chip">IAM</span><span class="chip">VPN</span><span class="chip">AWS Backup</span>
       </div>
     </div>
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>IaC &amp; CI/CD</h4>
       <div class="chips">
         <span class="chip">Terraform</span><span class="chip">CloudFormation</span>
         <span class="chip">Jenkins</span><span class="chip">Ansible</span>
       </div>
     </div>
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>Containers &amp; Orchestration</h4>
       <div class="chips">
         <span class="chip">Docker</span><span class="chip">Kubernetes</span>
         <span class="chip">Amazon EKS</span><span class="chip">Amazon ECS</span><span class="chip">AWS Fargate</span>
       </div>
     </div>
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>Monitoring &amp; Logging</h4>
       <div class="chips">
         <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span>
@@ -315,7 +384,7 @@
         <span class="chip">EventBridge</span><span class="chip">CloudTrail</span><span class="chip">AWS Config</span>
       </div>
     </div>
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>Security &amp; Networking</h4>
       <div class="chips">
         <span class="chip">AWS WAF</span><span class="chip">IAM Policies</span><span class="chip">GuardDuty</span>
@@ -324,7 +393,7 @@
         <span class="chip">Fortigate</span><span class="chip">Sophos</span>
       </div>
     </div>
-    <div class="skillset">
+    <div class="skillset reveal">
       <h4>Databases &amp; Scripting</h4>
       <div class="chips">
         <span class="chip">Amazon RDS</span><span class="chip">Oracle 19c</span><span class="chip">Aurora</span>
@@ -337,17 +406,19 @@
 
 <section id="edu-cert">
   <div class="wrap">
-    <h2>Certifications &amp; Education</h2>
-    <div class="rule"></div>
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Credentials</div>
+      <h2>Certifications &amp; Education</h2>
+    </div>
     <div class="cols">
-      <div class="card">
-        <h3>Certifications</h3>
+      <div class="card reveal">
+        <h3><span class="ic">&#10003;</span> Certifications</h3>
         <div class="item"><div class="t">AWS Certified Solutions Architect – Associate</div><div class="s">Amazon Web Services</div></div>
         <div class="item"><div class="t">Security Engineering on AWS</div><div class="s">Amazon Web Services</div></div>
         <div class="item"><div class="t">Architecting on AWS</div><div class="s">Amazon Web Services</div></div>
       </div>
-      <div class="card">
-        <h3>Education</h3>
+      <div class="card reveal">
+        <h3><span class="ic">&#127891;</span> Education</h3>
         <div class="item"><div class="t">MBA, Business Analytics</div><div class="s">Pune University · 2020–2022 · CGPA 8.75</div></div>
         <div class="item"><div class="t">B.Tech, Electronics</div><div class="s">VIT College of Engineering, Pune · 2015–2018 · CGPA 7.8</div></div>
       </div>
@@ -357,24 +428,28 @@
 
 <footer id="contact">
   <div class="wrap">
-    <h2 style="color:#fff">Let's work together</h2>
-    <p style="margin-top:8px">Open to AWS Cloud Engineer roles · Available at 15 days' notice</p>
+    <h2>Let's build on the cloud together</h2>
+    <p>Open to AWS Cloud Engineer roles &bull; Available at 15 days' notice</p>
     <div class="links">
-      <a href="mailto:kandhareakshay123@gmail.com">Email</a>
-      <a href="tel:+918767744356">Call</a>
-      <a href="https://linkedin.com/in/akshaykandhare" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="Akshay_Kandhare_Resume_ATS.pdf" download>Resume (PDF)</a>
+      <a href="mailto:kandhareakshay123@gmail.com">&#9993; Email</a>
+      <a href="tel:+918767744356">&#9742; Call</a>
+      <a href="https://linkedin.com/in/akshaykandhare" target="_blank" rel="noopener">&#128279; LinkedIn</a>
+      <a href="Akshay_Kandhare_Resume_ATS.pdf" download>&#8681; Resume</a>
     </div>
-    <small>&copy; <span id="yr"></span> Akshay Kandhare · Pune, India</small>
+    <small>&copy; <span id="yr"></span> Akshay Kandhare · Pune, India · Built &amp; hosted on GitHub Pages</small>
   </div>
 </footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  // close mobile menu after a link tap
   document.querySelectorAll('#menu a').forEach(function(a){
     a.addEventListener('click', function(){ document.getElementById('menu').classList.remove('open'); });
   });
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Akshay Kandhare — AWS Cloud Engineer</title>
+<meta name="description" content="Akshay Kandhare — AWS Cloud Engineer and Certified Solutions Architect (Associate). 5 years building, migrating and operating production AWS infrastructure." />
+<meta name="author" content="Akshay Kandhare" />
+<!-- Open Graph so the link previews nicely when shared -->
+<meta property="og:title" content="Akshay Kandhare — AWS Cloud Engineer" />
+<meta property="og:description" content="AWS Certified Solutions Architect – Associate. 5 years designing, deploying and migrating production cloud infrastructure." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --navy:#132a45; --navy2:#1f3a5f; --accent:#2e6da4; --accent-soft:#e8f0f8;
+    --ink:#1f2933; --muted:#5a6570; --line:#dfe6ee; --bg:#f5f7fa; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Times New Roman",Times,Georgia,serif;
+    color:var(--ink); background:var(--bg); line-height:1.6; font-size:16px;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px}
+
+  /* ---- top nav ---- */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+      backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:58px}
+  nav .brand{font-weight:700; color:var(--navy)}
+  nav ul{list-style:none; display:flex; gap:22px}
+  nav ul a{color:var(--muted); font-size:14px; font-weight:600}
+  nav ul a:hover{color:var(--accent); text-decoration:none}
+  .nav-toggle{display:none; background:none; border:0; font-size:24px; color:var(--navy); cursor:pointer}
+
+  /* ---- hero ---- */
+  header.hero{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,var(--accent) 140%);
+    color:#fff; padding:70px 0 60px;
+  }
+  .hero h1{font-size:2.6rem; line-height:1.15; letter-spacing:.3px}
+  .hero .role{font-size:1.25rem; color:#cfe0f2; margin-top:8px; font-weight:600}
+  .hero p.tag{margin-top:18px; max-width:680px; color:#e4edf6; font-size:1.02rem}
+  .hero .cta{margin-top:28px; display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-block; padding:11px 20px; border-radius:8px; font-weight:600; font-size:.95rem}
+  .btn-primary{background:#fff; color:var(--navy)}
+  .btn-primary:hover{background:#eef4fb; text-decoration:none}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.6); color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12); text-decoration:none}
+  .hero .contact{margin-top:26px; display:flex; flex-wrap:wrap; gap:18px; font-size:.9rem; color:#cfe0f2}
+  .hero .contact span{display:inline-flex; align-items:center; gap:6px}
+
+  /* ---- sections ---- */
+  section{padding:52px 0}
+  section:nth-of-type(even){background:var(--card)}
+  h2{color:var(--navy); font-size:1.5rem; margin-bottom:6px}
+  h2 + .lead{color:var(--muted); margin-bottom:26px; font-size:.98rem}
+  .rule{width:52px; height:3px; background:var(--accent); border-radius:2px; margin:8px 0 26px}
+
+  /* ---- highlight stats ---- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:8px}
+  .stat{background:var(--accent-soft); border:1px solid var(--line); border-radius:12px; padding:20px; text-align:center}
+  .stat .num{font-size:1.7rem; font-weight:800; color:var(--navy); line-height:1}
+  .stat .lbl{font-size:.82rem; color:var(--muted); margin-top:8px}
+
+  /* ---- timeline / experience ---- */
+  .job{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+       border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 1px 3px rgba(16,40,70,.05)}
+  section:nth-of-type(even) .job{background:var(--bg)}
+  .job .top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; align-items:baseline}
+  .job h3{color:var(--ink); font-size:1.12rem}
+  .job .co{color:var(--accent); font-weight:600; font-size:.98rem}
+  .job .when{color:var(--muted); font-size:.85rem; white-space:nowrap}
+  .job ul{margin:14px 0 0; padding-left:0; list-style:none}
+  .job li{position:relative; padding-left:22px; margin-bottom:9px; font-size:.95rem; color:#38434f}
+  .job li::before{content:""; position:absolute; left:4px; top:9px; width:7px; height:7px;
+                  background:var(--accent); border-radius:50%}
+
+  /* ---- projects ---- */
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+  .proj{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px;
+        transition:transform .15s ease, box-shadow .15s ease}
+  section:nth-of-type(even) .proj{background:var(--bg)}
+  .proj:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(16,40,70,.10)}
+  .proj h3{color:var(--navy); font-size:1.05rem; margin-bottom:8px}
+  .proj p{font-size:.92rem; color:#38434f}
+  .proj .badge{display:inline-block; background:var(--accent-soft); color:var(--accent);
+               font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:20px; margin-bottom:12px}
+
+  /* ---- skills ---- */
+  .skillset{margin-bottom:16px}
+  .skillset h4{color:var(--navy); font-size:.92rem; margin-bottom:9px; text-transform:uppercase; letter-spacing:.5px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{background:var(--card); border:1px solid var(--line); color:#33414d;
+        font-size:.83rem; padding:6px 12px; border-radius:20px}
+  section:nth-of-type(even) .chip{background:var(--bg)}
+
+  /* ---- two-col rows for edu/cert ---- */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px}
+  section:nth-of-type(even) .card{background:var(--bg)}
+  .card h3{color:var(--navy); font-size:1.05rem; margin-bottom:14px}
+  .item{margin-bottom:14px} .item:last-child{margin-bottom:0}
+  .item .t{font-weight:600; color:var(--ink); font-size:.96rem}
+  .item .s{color:var(--muted); font-size:.86rem}
+
+  /* ---- footer ---- */
+  footer{background:var(--navy); color:#cfe0f2; text-align:center; padding:38px 20px}
+  footer a{color:#fff}
+  footer .links{margin:14px 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap}
+  footer small{display:block; margin-top:14px; color:#8ba6c4}
+
+  @media (max-width:720px){
+    .hero h1{font-size:2rem}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid,.cols{grid-template-columns:1fr}
+    nav ul{position:absolute; top:58px; left:0; right:0; background:#fff; flex-direction:column;
+           gap:0; border-bottom:1px solid var(--line); display:none}
+    nav ul.open{display:flex}
+    nav ul li{border-top:1px solid var(--line)}
+    nav ul a{display:block; padding:14px 20px}
+    .nav-toggle{display:block}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Akshay Kandhare</span>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
+    <ul id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="about">
+  <div class="wrap">
+    <h1>Akshay Kandhare</h1>
+    <div class="role">AWS Cloud Engineer &nbsp;&bull;&nbsp; Certified Solutions Architect – Associate</div>
+    <p class="tag">
+      Five years designing, deploying and migrating production cloud infrastructure for
+      enterprise clients. I build platforms from the ground up on AWS &mdash; EKS, Amazon MQ,
+      OpenSearch and ElastiCache &mdash; and run migrations with documented validation,
+      rollback and zero data loss.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="Akshay_Kandhare_Resume_ATS.pdf" download>Download Resume (PDF)</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="contact">
+      <span>&#9993; kandhareakshay123@gmail.com</span>
+      <span>&#9742; +91 87677 44356</span>
+      <span>&#9679; Pune, India</span>
+      <span>&#128279; <a href="https://linkedin.com/in/akshaykandhare" style="color:#fff" target="_blank" rel="noopener">linkedin.com/in/akshaykandhare</a></span>
+    </div>
+  </div>
+</header>
+
+<section id="highlights">
+  <div class="wrap">
+    <h2>At a glance</h2>
+    <div class="rule"></div>
+    <div class="stats">
+      <div class="stat"><div class="num">5+</div><div class="lbl">Years in AWS cloud engineering</div></div>
+      <div class="stat"><div class="num">60</div><div class="lbl">Banking clients migrated to AWS</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl">Data loss on production migrations</div></div>
+      <div class="stat"><div class="num">SAA</div><div class="lbl">AWS Certified Solutions Architect</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Work Experience</h2>
+    <div class="rule"></div>
+
+    <div class="job">
+      <div class="top">
+        <div><h3>AWS Solutions Specialist</h3><span class="co">MeWhiz Services Pvt. Ltd</span></div>
+        <span class="when">Sep 2024 – Present &nbsp;|&nbsp; Uttar Pradesh, India</span>
+      </div>
+      <ul>
+        <li>Deployed production AWS infrastructure end to end: EKS clusters with managed node groups, Amazon MQ (ActiveMQ) brokers, OpenSearch clusters and ElastiCache (Redis), sized and secured.</li>
+        <li>Delivered a zero-data-loss ElastiCache (Redis) security update across dev, UAT and production OAuth clusters using a snapshot-first method with documented validation and rollback.</li>
+        <li>Completed a zero-downtime RabbitMQ migration from Amazon Linux 2 to Amazon Linux 2023 via blue/green cutover, preserving every vhost, queue, user and policy.</li>
+        <li>Migrated a self-managed Elasticsearch workload to Amazon OpenSearch, including reverse-proxy compatibility assessment, cutover plan and post-migration validation.</li>
+        <li>Automated S3 and CloudFront static site delivery with CloudFormation, and deployed AWS WAF to block common web attacks.</li>
+        <li>Reduced CloudFront spend through bytes-downloaded analysis and raised the approved change request.</li>
+        <li>Built centralised Kubernetes monitoring across multiple EKS clusters with Prometheus and Grafana; automated IAM login-failure and unauthorised-access alerting with CloudTrail, EventBridge and Lambda.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><h3>AWS Cloud Engineer</h3><span class="co">Community Brands Pvt. Ltd</span></div>
+        <span class="when">May 2024 – Jul 2024 &nbsp;|&nbsp; Pune, India</span>
+      </div>
+      <ul>
+        <li>Provisioned AWS infrastructure with Terraform and built Jenkins CI/CD pipelines, cutting manual deployment effort.</li>
+        <li>Deployed monitoring tooling and implemented cross-region data collection.</li>
+        <li>Applied AWS security and compliance best practices across provisioned environments.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><h3>AWS &amp; Network Engineer</h3><span class="co">JJIT Fintech Pvt Ltd</span></div>
+        <span class="when">Sep 2022 – May 2024 &nbsp;|&nbsp; Pune, India</span>
+      </div>
+      <ul>
+        <li>Led the migration of 60 banking clients from on-premises data centres to AWS with no loss of service.</li>
+        <li>Designed AWS cloud and network architecture for regulated banking workloads, ensuring secure connectivity.</li>
+        <li>Configured site-to-site VPN for branch connectivity and deployed Oracle 19c on RDS with backup and snapshot policies.</li>
+        <li>Automated remediation of low EC2 storage using PowerShell scripts.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><h3>EDP IT Assistant (Hardware &amp; Networking)</h3><span class="co">Indrayani Co-Op Bank</span></div>
+        <span class="when">Nov 2021 – Apr 2022 &nbsp;|&nbsp; Pimpri, Pune, India</span>
+      </div>
+      <ul>
+        <li>Implemented and maintained servers on EC2, including administration and patching.</li>
+        <li>Managed server operations and Active Directory configuration.</li>
+        <li>Supported Fortigate and Sophos firewall deployment and routing.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected Projects</h2>
+    <p class="lead">Production work delivered with documented validation, rollback and sign-off.</p>
+    <div class="grid">
+      <div class="proj">
+        <span class="badge">ZERO DATA LOSS</span>
+        <h3>ElastiCache Redis Security Update</h3>
+        <p>Security service update across dev, UAT and production OAuth clusters using a snapshot-first method — manual snapshot before every change, validation of engine version, replication and connectivity at each step, documented rollback throughout. Completed with zero data loss and no downtime.</p>
+      </div>
+      <div class="proj">
+        <span class="badge">ZERO DOWNTIME</span>
+        <h3>RabbitMQ Migration to Amazon Linux 2023</h3>
+        <p>Blue/green broker migration from Amazon Linux 2 to AL2023. Exported and restored every vhost, queue, user and policy, ran parallel validation, then cut over producers and consumers with the original broker retained as rollback until sign-off. No message loss.</p>
+      </div>
+      <div class="proj">
+        <span class="badge">MIGRATION</span>
+        <h3>Elasticsearch → Amazon OpenSearch</h3>
+        <p>Migrated a self-managed Elasticsearch workload to Amazon OpenSearch. Ran a reverse-proxy and transport compatibility assessment, documented incompatibilities, built the cutover plan and validated indices, queries and dashboards post-migration.</p>
+      </div>
+      <div class="proj">
+        <span class="badge">PLATFORM BUILD</span>
+        <h3>AWS Production Platform on EKS</h3>
+        <p>Designed and deployed the client platform: EKS with managed node groups, Amazon MQ (ActiveMQ), OpenSearch and ElastiCache (Redis). Covered sizing, multi-AZ placement, security groups, IAM roles, encryption and Prometheus/Grafana monitoring, with handover runbooks.</p>
+      </div>
+      <div class="proj">
+        <span class="badge">AUTOMATION</span>
+        <h3>S3 + CloudFront Site Delivery</h3>
+        <p>Automated static website delivery on S3 fronted by CloudFront using CloudFormation — templated origin, bucket policy, distribution and cache behaviours so a full environment builds repeatably from version-controlled code. Deployed AWS WAF for edge protection.</p>
+      </div>
+      <div class="proj">
+        <span class="badge">60 CLIENTS</span>
+        <h3>Banking Migration to AWS</h3>
+        <p>Migrated 60 on-premises banking clients to AWS. Designed the VPC, subnet and routing layout, configured site-to-site VPN for secure branch connectivity, deployed Oracle 19c on RDS with backup policies, and handed over operational runbooks with no loss of service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Technical Skills</h2>
+    <div class="rule"></div>
+
+    <div class="skillset">
+      <h4>AWS Services</h4>
+      <div class="chips">
+        <span class="chip">EKS</span><span class="chip">EC2</span><span class="chip">VPC</span>
+        <span class="chip">ELB / ALB</span><span class="chip">Auto Scaling</span><span class="chip">S3</span>
+        <span class="chip">RDS</span><span class="chip">Aurora</span><span class="chip">Route 53</span>
+        <span class="chip">OpenSearch</span><span class="chip">ElastiCache (Redis)</span>
+        <span class="chip">RabbitMQ</span><span class="chip">Amazon MQ (ActiveMQ)</span>
+        <span class="chip">Lambda</span><span class="chip">SQS</span><span class="chip">SNS</span>
+        <span class="chip">IAM</span><span class="chip">VPN</span><span class="chip">AWS Backup</span>
+      </div>
+    </div>
+    <div class="skillset">
+      <h4>IaC &amp; CI/CD</h4>
+      <div class="chips">
+        <span class="chip">Terraform</span><span class="chip">CloudFormation</span>
+        <span class="chip">Jenkins</span><span class="chip">Ansible</span>
+      </div>
+    </div>
+    <div class="skillset">
+      <h4>Containers &amp; Orchestration</h4>
+      <div class="chips">
+        <span class="chip">Docker</span><span class="chip">Kubernetes</span>
+        <span class="chip">Amazon EKS</span><span class="chip">Amazon ECS</span><span class="chip">AWS Fargate</span>
+      </div>
+    </div>
+    <div class="skillset">
+      <h4>Monitoring &amp; Logging</h4>
+      <div class="chips">
+        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span>
+        <span class="chip">Node Exporter</span><span class="chip">CloudWatch</span>
+        <span class="chip">EventBridge</span><span class="chip">CloudTrail</span><span class="chip">AWS Config</span>
+      </div>
+    </div>
+    <div class="skillset">
+      <h4>Security &amp; Networking</h4>
+      <div class="chips">
+        <span class="chip">AWS WAF</span><span class="chip">IAM Policies</span><span class="chip">GuardDuty</span>
+        <span class="chip">Inspector</span><span class="chip">MFA</span><span class="chip">Encryption (transit/rest)</span>
+        <span class="chip">VPN</span><span class="chip">NAT / NACL</span>
+        <span class="chip">Fortigate</span><span class="chip">Sophos</span>
+      </div>
+    </div>
+    <div class="skillset">
+      <h4>Databases &amp; Scripting</h4>
+      <div class="chips">
+        <span class="chip">Amazon RDS</span><span class="chip">Oracle 19c</span><span class="chip">Aurora</span>
+        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PowerShell</span>
+        <span class="chip">Linux Admin</span><span class="chip">Active Directory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="edu-cert">
+  <div class="wrap">
+    <h2>Certifications &amp; Education</h2>
+    <div class="rule"></div>
+    <div class="cols">
+      <div class="card">
+        <h3>Certifications</h3>
+        <div class="item"><div class="t">AWS Certified Solutions Architect – Associate</div><div class="s">Amazon Web Services</div></div>
+        <div class="item"><div class="t">Security Engineering on AWS</div><div class="s">Amazon Web Services</div></div>
+        <div class="item"><div class="t">Architecting on AWS</div><div class="s">Amazon Web Services</div></div>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <div class="item"><div class="t">MBA, Business Analytics</div><div class="s">Pune University · 2020–2022 · CGPA 8.75</div></div>
+        <div class="item"><div class="t">B.Tech, Electronics</div><div class="s">VIT College of Engineering, Pune · 2015–2018 · CGPA 7.8</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 style="color:#fff">Let's work together</h2>
+    <p style="margin-top:8px">Open to AWS Cloud Engineer roles · Available at 15 days' notice</p>
+    <div class="links">
+      <a href="mailto:kandhareakshay123@gmail.com">Email</a>
+      <a href="tel:+918767744356">Call</a>
+      <a href="https://linkedin.com/in/akshaykandhare" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Akshay_Kandhare_Resume_ATS.pdf" download>Resume (PDF)</a>
+    </div>
+    <small>&copy; <span id="yr"></span> Akshay Kandhare · Pune, India</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // close mobile menu after a link tap
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('menu').classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
